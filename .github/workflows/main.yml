@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Image Resizer Gallery
-      run: magick mogrify -resize 420x -quality 50 -path ./thumbnails **/**.png
+      run: apt install imagemagick && magick mogrify -resize 420x -quality 50 -path ./thumbnails **/**.png
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
