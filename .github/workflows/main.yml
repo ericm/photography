@@ -23,12 +23,13 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Image Resizer Gallery
-      run:
+      run: bash -c "
         for d in */ ; do
           cd $d
           mogrify -resize 420x -quality 50 -path ./thumbnails **/**.png
           cd ..
         done 
+        "
         
 
     - name: Commit changes
