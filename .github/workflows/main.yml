@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Image Resizer Gallery
-      run: bash -c "cd gallery && pwd && for d in \`find . -type d | tail -n +2\` ; do cd \$d; mogrify -resize 420x -quality 50 -path ./thumbnails **/**.png; cd ..; done"
+      run: bash -c "cd gallery && pwd && for d in \`find . -type d | tail -n +2\` ; do cd \$d; ls -al; mogrify -resize 420x -quality 50 -path ./thumbnails *.png; cd ..; done"
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
