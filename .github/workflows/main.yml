@@ -23,7 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Image Resizer Gallery
-      run: convert thumbnails/**/**.png -resize x400 **/**.png
+      run: magick mogrify -resize 420x -quality 50 -path ./thumbnails **/**.png
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
