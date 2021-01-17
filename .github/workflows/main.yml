@@ -23,14 +23,7 @@ jobs:
     - uses: actions/checkout@v2
 
     - name: Image Resizer Gallery
-      uses: sharadcodes/img-resizer@v1.1
-      with:
-      # Folder in which original images are stored
-        image-folder: gallery
-    # New resolution for images
-        new-resolution: 420x
-    # Folder in which resized images are stored
-        output-folder: thumbnails
+      run: convert **/**.png -resize x400 thumbnails/**/**.png
 
     - name: Commit changes
       uses: stefanzweifel/git-auto-commit-action@v4
